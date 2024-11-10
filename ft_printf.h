@@ -6,7 +6,7 @@
 /*   By: jnuno-da <jnuno-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 00:20:10 by jnuno-da          #+#    #+#             */
-/*   Updated: 2024/11/10 12:06:58 by jnuno-da         ###   ########.fr       */
+/*   Updated: 2024/11/10 20:46:37 by jnuno-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@
 
 int	ft_printf(const char *format, ...);
 int	ft_puts(char *str, int fd);
+int	ft_pnbr(int n);
 
 #endif
