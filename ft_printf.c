@@ -6,7 +6,7 @@
 /*   By: jnuno-da <jnuno-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 21:06:36 by jnuno-da          #+#    #+#             */
-/*   Updated: 2024/11/10 20:33:06 by jnuno-da         ###   ########.fr       */
+/*   Updated: 2024/11/15 00:26:05 by jnuno-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,54 @@
 
 static int	p_args(va_list args, char opt)
 {
+	int	count;
+
+	count = 0;
 	if (opt == 'c')
-		ft_putchar_fd(va_arg(args, int), 1);
+		return(ft_putch(va_arg(args, int), 1));
 	if (opt == 's')
-		ft_puts(va_arg(args, char *), 1);
-	//if (opt == 'p')
-	if (opt == 'i')
-		ft_pnbr(va_arg(args,int), 1);
-	return (0);
+		return (ft_puts(va_arg(args, char *), 1));
+	if (opt == 'i' || opt == 'd')
+		return (ft_pnbr(va_arg(args, int), 1));
+	if (opt == 'u')
+		return (ft_upnbr(va_arg(args, unsigned int), 1));
+	if (opt == 'p')
+		return (ft_check_p(va_arg(args, unsigned long)));
+	if (opt == 'x')
+		return (ft_base_hex(va_arg(args,unsigned int), 'x'));
+	if (opt == 'X')
+		return (ft_base_hex(va_arg(args, unsigned int), 'X'));
+	if (opt == '%')
+	{
+		write(1, "%", 1);
+		count = 1;
+	}
+	return (count);
 }
+
 int	ft_printf(const char *format, ...)
 {
 	int		i;
 	int		count;
-	va_list args;
+	va_list	args;
 
 	va_start (args, format);
 	i = 0;
 	count = 0;
-	while (format[i++])
+	while (format[i])
 	{
 		if (format[i] != '%')
 		{
-				ft_putchar_fd(format[i], 1);
-				count++;
+			ft_putchar_fd(format[i], 1);
+			count++;
 		}
 		else
 		{
 			i++;
 			count += p_args(args, format[i]);
-			count++;
 		}
+		i++;
 	}
 	va_end(args);
 	return (count);
 }
-

@@ -6,7 +6,7 @@
 #    By: jnuno-da <jnuno-da@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/10 10:43:36 by jnuno-da          #+#    #+#              #
-#    Updated: 2024/11/10 12:00:35 by jnuno-da         ###   ########.fr        #
+#    Updated: 2024/11/14 22:04:45 by jnuno-da         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ NAME = libftprintf.a
 CFLAGS = -Wall -Werror -Wextra
 CC = cc
 
-SRCS = ft_printf.c libft/ft_putchar_fd.c libft/ft_putstr_fd.c
+SRCS = ft_printf.c ft_printf_helper.c libft/ft_putnbr_fd.c \
+	libft/ft_putchar_fd.c 
 
 OBJ = $(SRCS:.c=.o)
 
