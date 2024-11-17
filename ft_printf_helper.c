@@ -6,7 +6,7 @@
 /*   By: jnuno-da <jnuno-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:02:09 by jnuno-da          #+#    #+#             */
-/*   Updated: 2024/11/17 11:07:06 by jnuno-da         ###   ########.fr       */
+/*   Updated: 2024/11/17 21:10:13 by jnuno-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,12 @@ int	ft_base_hex(unsigned long n, char format)
 		base = "0123456789abcdef";
 	if (format == 'X')
 		base = "0123456789ABCDEF";
+	if (n < 16)
+		count += write(1, &base[n], 1);
 	if (n >= 16)
+	{
 		count += ft_base_hex(n / 16, format);
-	count += write(1, &base[n % 16], 1);
+		count += ft_base_hex(n % 16, format);
+	}
 	return (count);
 }
