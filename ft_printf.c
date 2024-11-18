@@ -6,7 +6,7 @@
 /*   By: jnuno-da <jnuno-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 21:06:36 by jnuno-da          #+#    #+#             */
-/*   Updated: 2024/11/17 11:16:31 by jnuno-da         ###   ########.fr       */
+/*   Updated: 2024/11/18 22:03:49 by jnuno-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	p_args(va_list args, char opt)
 	if (opt == 'i' || opt == 'd')
 		return (ft_pnbr(va_arg(args, int), 1));
 	if (opt == 'u')
-		return (ft_upnbr(va_arg(args, unsigned int), 1));
+		return (ft_upnbr(va_arg(args_printf.c, unsigned int), 1));
 	if (opt == 'p')
 		return (ft_check_p(va_arg(args, unsigned long)));
 	if (opt == 'x')
